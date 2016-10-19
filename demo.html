@@ -18,11 +18,14 @@
 <body>
   <div id="word">
     <div class="cutout" id="p">
-      <a href="#" class="trigger">Open</a>
+      <a href="#p" class="trigger">Open</a>
       <div class="background">
         <div class="blurb">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies faucibus velit, eu vestibulum ex mattis a. Sed at blandit lorem, eu porta velit. Nulla lobortis vehicula lorem, nec porttitor sapien maximus sit amet. Pellentesque at dignissim augue, sit amet placerat mi. Vestibulum vitae urna at nunc sodales porttitor non rutrum nisi. Vestibulum metus velit, posuere eget elit non, posuere placerat sapien. Nullam laoreet, magna et porttitor mattis, tellus lacus tincidunt velit, in fringilla ligula nunc sed velit. Phasellus consequat tellus ut diam posuere scelerisque. Sed bibendum volutpat turpis, accumsan placerat orci finibus eu. Donec eu ultrices neque. Curabitur magna velit, congue sit amet purus feugiat, tempor suscipit erat. Proin sed lectus aliquet, placerat ex sed, lacinia metus. Sed volutpat dictum pretium. Phasellus vel volutpat purus.
+          </p>
+          <p>
+            <a href="#">Close</a>
           </p>
         </div>
       </div>
@@ -56,6 +59,7 @@
     background:gray;
   }
   .cutout#p{
+    transition: all 3s ease-in-out;
     position:absolute;
     -webkit-clip-path: polygon(0% 0%, 66.6% 0%, 100% 20%, 100% 40%, 66.6% 40%, 66.6% 20%, 33.3% 20%, 33.3% 40%, 100% 40%, 66.6% 60%, 33.3% 60%, 33.3% 100%, 0% 100%);
 
@@ -64,11 +68,14 @@
     width:180px;
     background:black;
   }
-  .cutout#p.active{
-    -webkit-clip-path: polygon(12% 15%, 12% 72%, 28% 73%, 28% 51%, 41% 51%, 46% 44%, 47% 34%, 38% 34%, 37% 40%, 28% 40%, 27% 24%, 37% 24%, 38% 30%, 47% 32%, 47% 22%, 41% 14%);
-    left:70px;
-    height:100%;
-    width:180px;
+  .cutout#p:target{
+    transition: all 3s ease-in-out;
+    -webkit-clip-path: polygon(0% 0%, 100 0%, 100% 20%, 100% 40%, 100% 40%, 100% 20%, 100% 20%, 100% 40%, 100% 40%, 100% 60%, 100% 60%, 100% 100%, 0% 100%);
+    width:310%;
+    left:0;
+    right:-210%;
+    top:0;
+    bottom:0;
   }
   .trigger{
     position:absolute;
@@ -76,6 +83,10 @@
     right:0;
     top:0;
     bottom:0;
+    z-index:1;
+  }
+  .cutout:target .trigger{
+    z-index:-1;
   }
   .background{
     position:absolute;
@@ -84,7 +95,7 @@
     top:0;
     bottom:0;
     color:white;
-    z-index:1;
+    z-index:0;
   }
 
 
