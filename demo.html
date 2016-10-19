@@ -10,8 +10,15 @@
 </head>
 <body>
   <div id="word">
-    <div id="p" class="letter">
-      <a href="#p">P</a>
+    <div class="cutout" id="p">
+      <a href="#" class="trigger">Open</a>
+      <div class="background">
+        <div class="blurb">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies faucibus velit, eu vestibulum ex mattis a. Sed at blandit lorem, eu porta velit. Nulla lobortis vehicula lorem, nec porttitor sapien maximus sit amet. Pellentesque at dignissim augue, sit amet placerat mi. Vestibulum vitae urna at nunc sodales porttitor non rutrum nisi. Vestibulum metus velit, posuere eget elit non, posuere placerat sapien. Nullam laoreet, magna et porttitor mattis, tellus lacus tincidunt velit, in fringilla ligula nunc sed velit. Phasellus consequat tellus ut diam posuere scelerisque. Sed bibendum volutpat turpis, accumsan placerat orci finibus eu. Donec eu ultrices neque. Curabitur magna velit, congue sit amet purus feugiat, tempor suscipit erat. Proin sed lectus aliquet, placerat ex sed, lacinia metus. Sed volutpat dictum pretium. Phasellus vel volutpat purus.
+          </p>
+        </div>
+      </div>
     </div>
     <div id="o" class="letter">
       <a href="#o">O</a>
@@ -39,8 +46,41 @@
     height:600px;
     overflow:hidden;
     z-index:0;
-    background:black;
+    background:gray;
   }
+  .cutout#p{
+    position:absolute;
+    -webkit-clip-path: url(#pClip);
+
+    left:70px;
+    height:100%;
+    width:180px;
+  }
+  .cutout#p.active{
+    -webkit-clip-path: url(#pClipLarge);
+  left:70px;
+  height:100%;
+  width:180px;
+  }
+  .trigger{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+  }
+  .background{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    color:white;
+    z-index:1;
+  }
+
+
+
   .letter a{
     font-family: 'Teko', sans-serif;
     font-weight:bold;
@@ -56,9 +96,6 @@
   }
   .letter .large{
     background:gray;
-  }
-  #p a{
-    left:70px;
   }
   #p .large{
     transition: all 3s ease-in-out;
@@ -147,5 +184,18 @@
       })
     })
   </script>
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="pClip">
+        <text x="70" y="300" font-family="Teko" font-size="400px" font-weight="700">P</text>
+      </clipPath>
+      <clipPath id="pClipLarge">
+        <text x="70" y="300" font-family="Teko" font-size="40000px" font-weight="700">P</text>
+      </clipPath>
+      <clipPath id="oClip">
+        <text x="0" y="300" font-family="Teko" font-size="400px" font-weight="700">O</text>
+      </clipPath>
+    </defs>
+  </svg>
 </body>
 </html>
