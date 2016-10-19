@@ -1,0 +1,110 @@
+
+#word{
+  position:absolute;
+  width:1000px;
+  height:600px;
+  overflow:hidden;
+  z-index:0;
+  background:black;
+  left:50%;
+  margin-left:-500px;
+}
+.letter a{
+  font-family: 'Teko', sans-serif;
+  font-weight:bold;
+  transition: all 3s ease-in-out;
+  display:block;
+  background:white;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  position:absolute;
+  font-size:400px;
+  top:80px;
+  z-index:0;
+}
+.letter{
+  transition: opacity 1s ease-in-out;
+  z-index:2;
+  opacity:1;
+}
+.letter .large{
+  background:gray;
+}
+.letter.hidden{
+  transition: opacity 1s ease-in-out;
+  opacity:0;
+  z-index:0;
+  pointer-events:none;
+}
+#p a{
+  left:70px;
+}
+#p .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(90deg);
+  top: -3230px;
+  left: -80px!important;
+  position: absolute;
+  pointer-events: none;
+}
+#o a{
+  left:240px;
+}
+#o .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(90deg);
+  top: -3750px;
+  left: -400px;
+  position: absolute;
+  pointer-events: none;
+}
+#l a{
+  left:410px;
+}
+#l .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(90deg);
+  top: -2965px;
+  left: -80px!important;
+  position: absolute;
+  pointer-events: none;
+}
+#i a{
+  left:550px;
+}
+#i .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(90deg);
+  top: -3230px;
+  left: -80px!important;
+  position: absolute;
+  pointer-events: none;
+}
+#c a{
+  left:640px;
+}
+#c .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(-90deg);
+  top: -3230px;
+  left: -80px!important;
+  position: absolute;
+  pointer-events: none;
+}
+#e a{
+  left:810px;
+}
+#e .large{
+  transition: all 3s ease-in-out;
+  font-size: 5000px;
+  transform: rotate(-90deg);
+  top: -3230px;
+  left: -80px!important;
+  position: absolute;
+  pointer-events: none;
+}
