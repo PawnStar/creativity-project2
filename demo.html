@@ -1,3 +1,10 @@
+<!--
+  NOTE: I could always go back to the text-link based clipping and javascript hack my way into having it look nice.
+  Use the transitions and clipping to expand the background (positioned absolutely if that's possible),
+  then fade in the text descriptions after the transition finishes.
+  Actually absolutely positioning backgrounds isn't quite possible . . . could maybe do the math to have it in the same spot
+  before/after transition and hope the intermediary values are good enough?
+-->
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -20,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div id="o" class="letter">
+    <!-- <div id="o" class="letter">
       <a href="#o">O</a>
     </div>
     <div id="l" class="letter">
@@ -34,7 +41,7 @@
     </div>
     <div id="e" class="letter">
       <a href="#e">E</a>
-    </div>
+    </div> -->
   </div>
   <style>
   body{
@@ -50,11 +57,12 @@
   }
   .cutout#p{
     position:absolute;
-    -webkit-clip-path: polygon(12% 15%, 12% 72%, 28% 73%, 28% 51%, 41% 51%, 46% 44%, 47% 34%, 38% 34%, 37% 40%, 28% 40%, 27% 24%, 37% 24%, 38% 30%, 47% 32%, 47% 22%, 41% 14%);
+    -webkit-clip-path: polygon(0% 0%, 66.6% 0%, 100% 20%, 100% 40%, 66.6% 40%, 66.6% 20%, 33.3% 20%, 33.3% 40%, 100% 40%, 66.6% 60%, 33.3% 60%, 33.3% 100%, 0% 100%);
 
     left:70px;
     height:100%;
     width:180px;
+    background:black;
   }
   .cutout#p.active{
     -webkit-clip-path: polygon(12% 15%, 12% 72%, 28% 73%, 28% 51%, 41% 51%, 46% 44%, 47% 34%, 38% 34%, 37% 40%, 28% 40%, 27% 24%, 37% 24%, 38% 30%, 47% 32%, 47% 22%, 41% 14%);
