@@ -40,17 +40,26 @@
       $('.letter a').click(function(ev){
         ev.preventDefault();
         $('.letter a').removeClass('large');
+        var anchor = $(this);
         $(this).addClass('large').parent().siblings().addClass('hidden');
         setTimeout(function(){
           console.log('Faking overlay!')
           $('#overlay').addClass('shown');
+          anchor.attr('data-background', anchor.css('background-image'));
+          var img = new Image();
+          img.onload = function(){
+            anchor.css('background-image', 'url(' + img.src + ')');
+          }
+          img.src = 'images/' + anchor.parent().attr('id') + '-plate-large.png';
         },2800)
         return false;
       })
       $('#close').click(function(ev){
         ev.preventDefault();
         $('#overlay').removeClass('shown');
-        $('.letter a.large').removeClass('large').one('transitionend', function(){
+        var anchor = $('.letter a.large');
+        anchor.css('background-image', anchor.attr('data-background'));
+        anchor.removeClass('large').one('transitionend', function(){
           $('.letter').removeClass('hidden');
         })
         return false;

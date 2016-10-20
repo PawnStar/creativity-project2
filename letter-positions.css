@@ -12,9 +12,12 @@
 .letter a{
   font-family: 'Teko', sans-serif;
   font-weight:bold;
-  transition: all 3s ease-in-out;
   display:block;
-  background:white;
+  transition-property: top, left, font-size, transform;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  background-size:100%;
+  background-color:white;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   position:absolute;
@@ -33,75 +36,65 @@
   z-index:0;
   pointer-events:none;
 }
+.letter .large{
+  transition-property: top, left, font-size, transform;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  font-size: 5000px;
+  position: absolute;
+  pointer-events: none;
+}
 #p a{
   left:60px;
+  background-image:url(images/p-plate-small.png);
 }
 #p .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(90deg);
   top: -2820px;
   left: -80px!important;
-  position: absolute;
-  pointer-events: none;
 }
 #o a{
   left:230px;
+  background-image:url(images/o-plate.png);
 }
 #o .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(90deg);
   top: -3800px;
   left: -400px;
-  position: absolute;
-  pointer-events: none;
 }
 #l a{
   left:400px;
+  background-image:url(images/l-plate.png);
 }
 #l .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(450deg);
   top: -3015px;
   left: -80px!important;
-  position: absolute;
-  pointer-events: none;
 }
 #i a{
   left:540px;
+  background-image:url(images/i-plate.png);
 }
 #i .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(-270deg);
   top: -3280px;
   left: -80px!important;
-  position: absolute;
-  pointer-events: none;
 }
 #c a{
   left:630px;
+  background-image:url(images/c-plate.png);
 }
 #c .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(-90deg);
   top: -3760px;
   left: -80px!important;
-  position: absolute;
-  pointer-events: none;
 }
 #e a{
   left:800px;
+  background-image:url(images/e-plate.png);
 }
 #e .large{
-  transition: all 3s ease-in-out;
-  font-size: 5000px;
   transform: rotate(-90deg);
   top: -3650px;
   left: -80px!important;
-  position: absolute;
-  pointer-events: none;
 }
