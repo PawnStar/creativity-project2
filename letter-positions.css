@@ -19,7 +19,7 @@
   -webkit-text-fill-color:transparent;
   position:absolute;
   font-size:400px;
-  top:80px;
+  top:50px;
   z-index:0;
 }
 .letter{
@@ -34,73 +34,73 @@
   pointer-events:none;
 }
 #p a{
-  left:70px;
+  left:60px;
 }
 #p .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
   transform: rotate(90deg);
-  top: -3230px;
+  top: -2820px;
   left: -80px!important;
   position: absolute;
   pointer-events: none;
 }
 #o a{
-  left:240px;
+  left:230px;
 }
 #o .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
   transform: rotate(90deg);
-  top: -3750px;
+  top: -3800px;
   left: -400px;
   position: absolute;
   pointer-events: none;
 }
 #l a{
-  left:410px;
+  left:400px;
 }
 #l .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
-  transform: rotate(90deg);
-  top: -2965px;
+  transform: rotate(450deg);
+  top: -3015px;
   left: -80px!important;
   position: absolute;
   pointer-events: none;
 }
 #i a{
-  left:550px;
+  left:540px;
 }
 #i .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
-  transform: rotate(90deg);
-  top: -3230px;
+  transform: rotate(-270deg);
+  top: -3280px;
   left: -80px!important;
   position: absolute;
   pointer-events: none;
 }
 #c a{
-  left:640px;
+  left:630px;
 }
 #c .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
   transform: rotate(-90deg);
-  top: -3230px;
+  top: -3760px;
   left: -80px!important;
   position: absolute;
   pointer-events: none;
 }
 #e a{
-  left:810px;
+  left:800px;
 }
 #e .large{
   transition: all 3s ease-in-out;
   font-size: 5000px;
   transform: rotate(-90deg);
-  top: -3230px;
+  top: -3650px;
   left: -80px!important;
   position: absolute;
   pointer-events: none;
