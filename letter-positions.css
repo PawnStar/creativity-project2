@@ -10,7 +10,6 @@
   margin-left:-500px;
 }
 .letter a{
-  font-family: 'Teko', sans-serif;
   font-weight:bold;
   display:block;
   transition-property: top, left, font-size, transform;
