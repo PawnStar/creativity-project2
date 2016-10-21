@@ -47,7 +47,7 @@
 }
 #p a{
   left:60px;
-  background-image:url(images/p-plate-small.png);
+  background-image:url(images/p-plate.png);
 }
 #p .large{
   transform: rotate(90deg);
@@ -74,7 +74,7 @@
 }
 #i a{
   left:540px;
-  background-image:url(images/i-plate-small.png);
+  background-image:url(images/i-plate.png);
 }
 #i .large{
   transform: rotate(-270deg);

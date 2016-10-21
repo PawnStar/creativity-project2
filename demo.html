@@ -6,29 +6,20 @@
 <title>CSS &amp; SVG Clipping Demo #5</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
-<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+<link href="teko.css" rel="stylesheet">
 <link href="letter-positions.css" rel="stylesheet">
 <link href="main-positioning.css" rel="stylesheet">
 </head>
 <body>
-  <div id="word">
-    <div id="p" class="letter">
-      <a href="#p">P</a>
-    </div>
-    <div id="o" class="letter">
-      <a href="#o">O</a>
-    </div>
-    <div id="l" class="letter">
-      <a href="#l">L</a>
-    </div>
-    <div id="i" class="letter">
-      <a href="#i">I</a>
-    </div>
-    <div id="c" class="letter">
-      <a href="#c">C</a>
-    </div>
-    <div id="e" class="letter">
-      <a href="#e">E</a>
+  <div id="word" class="hidden">
+    <div id="loading">
+      <p id="progressLabel">
+        Loading images . . .
+      </p>
+      <div id="progress">
+        <div style="width:0%;">
+        </div>
+      </div>
     </div>
   </div>
   <div id="overlay">
@@ -36,34 +27,60 @@
   </div>
   <script src="./jquery-3.1.1.min.js"></script>
   <script type="text/javascript">
+    var prefetchImages = function(sources, progress, callback){
+      var images = [];
+      var loadedImages = 0;
+      var numImages = sources.length;
+      for (var i=0; i < numImages; i++) {
+        images[i] = new Image();
+        images[i].onload = function(){
+          if (++loadedImages >= numImages)
+            return callback();
+          if(progress)
+            progress(loadedImages / numImages);
+        };
+        images[i].src = sources[i]; //bind onload before setting src bug in some chrome versions
+      }
+    };
+
     $('document').ready(function(){
-      $('.letter a').click(function(ev){
-        ev.preventDefault();
-        $('.letter a').removeClass('large');
-        var anchor = $(this);
-        $(this).addClass('large').parent().siblings().addClass('hidden');
-        setTimeout(function(){
-          console.log('Faking overlay!')
-          $('#overlay').addClass('shown');
-          anchor.attr('data-background', anchor.css('background-image'));
-          var img = new Image();
-          img.onload = function(){
-            anchor.css('background-image', 'url(' + img.src + ')');
-          }
-          img.src = 'images/' + anchor.parent().attr('id') + '-plate-large.png';
-        },2800)
-        return false;
-      })
-      $('#close').click(function(ev){
-        ev.preventDefault();
-        $('#overlay').removeClass('shown');
-        var anchor = $('.letter a.large');
-        anchor.css('background-image', anchor.attr('data-background'));
-        anchor.removeClass('large').one('transitionend', function(){
-          $('.letter').removeClass('hidden');
+      var setup = function(){
+        $('#loading').fadeOut(300, function(){
+          $('#word').html('<div id="p" class="letter"><a href="#p">P</a></div><div id="o" class="letter"><a href="#o">O</a></div><div id="l" class="letter"><a href="#l">L</a></div><div id="i" class="letter"><a href="#i">I</a></div><div id="c" class="letter"><a href="#c">C</a></div><div id="e" class="letter"><a href="#e">E</a></div>');
+          $('.letter a').click(function(ev){
+            ev.preventDefault();
+            $('.letter a').removeClass('large');
+            var anchor = $(this);
+            $(this).addClass('large').parent().siblings().addClass('hidden');
+            setTimeout(function(){
+              console.log('Faking overlay!')
+              $('#overlay').addClass('shown');
+              anchor.attr('data-background', anchor.css('background-image'));
+              var img = new Image();
+              img.onload = function(){
+                anchor.css('background-image', 'url(' + img.src + ')');
+              }
+              img.src = 'images/' + anchor.parent().attr('id') + '-plate-large.png';
+            },2800)
+            return false;
+          })
+          $('#close').click(function(ev){
+            ev.preventDefault();
+            $('#overlay').removeClass('shown');
+            var anchor = $('.letter a.large');
+            anchor.css('background-image', anchor.attr('data-background'));
+            anchor.removeClass('large').one('transitionend', function(){
+              $('.letter').removeClass('hidden');
+            })
+            return false;
+          })
         })
-        return false;
-      })
+      }
+      //Load images
+      var updateBar = function(progress){
+        $('#progress div').css('width', (progress * 100) + '%');
+      }
+      prefetchImages(['images/p-plate.png','images/o-plate.png','images/l-plate.png','images/i-plate.png','images/c-plate.png','images/e-plate.png','images/p-plate-large.png','images/o-plate-large.png','images/l-plate-large.png','images/i-plate-large.png','images/c-plate-large.png','images/e-plate-large.png'], updateBar, setup);
     })
   </script>
 </body>
