@@ -85,7 +85,20 @@
       var updateBar = function(progress){
         $('#progress div').css('width', (progress * 100) + '%');
       }
-      prefetchImages(['images/p-plate.png','images/o-plate.png','images/l-plate.png','images/i-plate.png','images/c-plate.png','images/e-plate.png','images/p-plate-large.png','images/o-plate-large.png','images/l-plate-large.png','images/i-plate-large.png','images/c-plate-large.png','images/e-plate-large.png'], updateBar, setup);
+      prefetchImages([
+        'images/p-plate.png',
+        'images/p-plate-large.png',
+        'images/o-plate.png',
+        'images/o-plate-large.png',
+        'images/l-plate.png',
+        'images/l-plate-large.png',
+        'images/i-plate.png',
+        'images/i-plate-large.png',
+        'images/c-plate.png',
+        'images/c-plate-large.png',
+        'images/e-plate.png',
+        'images/e-plate-large.png'
+      ], updateBar, setup);
     })
   </script>
 </body>
