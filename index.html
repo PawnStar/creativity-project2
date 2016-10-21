@@ -13,13 +13,15 @@
 <body>
   <div id="word" class="hidden">
     <div id="loading">
-      <p id="progressLabel">
+      <p id="progressLabel" class="center">
         Loading images . . .
       </p>
       <div id="progress">
-        <div style="width:0%;">
-        </div>
+        <div style="width:0%;"></div>
       </div>
+      <p class="center">
+        "Pepper Spray Cop" image sourced under fair use.  All other images used under Creative Commons License.
+      </p>
     </div>
   </div>
   <div id="overlay">
@@ -27,6 +29,7 @@
   </div>
   <script src="./jquery-3.1.1.min.js"></script>
   <script type="text/javascript">
+    closing = false;
     var prefetchImages = function(sources, progress, callback){
       var images = [];
       var loadedImages = 0;
@@ -49,11 +52,11 @@
           $('#word').html('<div id="p" class="letter"><a href="#p">P</a></div><div id="o" class="letter"><a href="#o">O</a></div><div id="l" class="letter"><a href="#l">L</a></div><div id="i" class="letter"><a href="#i">I</a></div><div id="c" class="letter"><a href="#c">C</a></div><div id="e" class="letter"><a href="#e">E</a></div>');
           $('.letter a').click(function(ev){
             ev.preventDefault();
+            if(closing) return false;
             $('.letter a').removeClass('large');
             var anchor = $(this);
             $(this).addClass('large').parent().siblings().addClass('hidden');
             setTimeout(function(){
-              console.log('Faking overlay!')
               $('#overlay').addClass('shown');
               anchor.attr('data-background', anchor.css('background-image'));
               var img = new Image();
@@ -65,11 +68,13 @@
             return false;
           })
           $('#close').click(function(ev){
+            closing = true;
             ev.preventDefault();
             $('#overlay').removeClass('shown');
             var anchor = $('.letter a.large');
             anchor.css('background-image', anchor.attr('data-background'));
             anchor.removeClass('large').one('transitionend', function(){
+              closing = false;
               $('.letter').removeClass('hidden');
             })
             return false;

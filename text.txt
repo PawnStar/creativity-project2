@@ -2,10 +2,10 @@ P - Prejudiced
 
 O - Overworked
 
-L -
+L - Lethal
 
 I - Incompetent
 
-C - 
+C - Careless
 
 E - Extreme
