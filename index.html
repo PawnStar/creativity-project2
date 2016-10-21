@@ -50,6 +50,14 @@
     };
 
     $('document').ready(function(){
+      var doOverlay = function(letter){
+        $('#overlay').addClass(letter);
+        $('#overlayTitle').text(messages[letter][0]);
+        for(var i = 1; i< messages[letter].length; i++){
+          $('#overlayText').append('<p>' + messages[letter][i] + '</p>')
+        }
+        $('#overlay').addClass('shown');
+      }
       var setup = function(){
         $('#loading').fadeOut(300, function(){
           $('#word').html('<div id="p" class="letter"><a href="#p">P</a></div><div id="o" class="letter"><a href="#o">O</a></div><div id="l" class="letter"><a href="#l">L</a></div><div id="i" class="letter"><a href="#i">I</a></div><div id="c" class="letter"><a href="#c">C</a></div><div id="e" class="letter"><a href="#e">E</a></div>');
@@ -60,11 +68,8 @@
             var anchor = $(this);
             $(this).addClass('large').parent().siblings().addClass('hidden');
             setTimeout(function(){
-              $('#overlay').addClass(anchor.parent().attr('id'));
-              $('#overlayTitle').text(messages[anchor.parent().attr('id')][0]);
-              $('#overlayText').text(messages[anchor.parent().attr('id')][1]);
-              $('#overlay').addClass('shown');
               anchor.attr('data-background', anchor.css('background-image'));
+              doOverlay(anchor.parent().attr('id'));
               var img = new Image();
               img.onload = function(){
                 anchor.css('background-image', 'url(' + img.src + ')');

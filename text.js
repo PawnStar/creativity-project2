@@ -1,7 +1,8 @@
 messages = {
   p:[
     'Police are Prejudiced',
-    'We\'re all prejudiced.'
+    'We\'re all prejudiced.',
+    'And this is the second paragraph.'
   ],
   o:[
     'Police are Overstressed',
