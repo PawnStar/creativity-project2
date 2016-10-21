@@ -1,0 +1,101 @@
+
+#word{
+  position:absolute;
+  width:1000px;
+  height:600px;
+  overflow:hidden;
+  z-index:0;
+  background:black;
+  left:50%;
+  margin-left:-500px;
+}
+.letter a{
+  font-family: 'Teko', sans-serif;
+  font-weight:bold;
+  display:block;
+  transition-property: top, left, font-size, transform;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  background-size:100%;
+  background-color:white;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  position:absolute;
+  font-size:400px;
+  top:50px;
+  z-index:0;
+}
+.letter{
+  margin:0;
+  transition: opacity 1s ease-in-out;
+  z-index:2;
+  opacity:1;
+}
+.letter.hidden{
+  transition: opacity 1s ease-in-out;
+  opacity:0;
+  z-index:0;
+  pointer-events:none;
+}
+.letter .large{
+  transition-property: top, left, font-size, transform;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  font-size: 5000px;
+  position: absolute;
+  pointer-events: none;
+}
+#p a{
+  left:60px;
+  background-image:url(images/p-plate.png);
+}
+#p .large{
+  transform: rotate(90deg);
+  top: -2820px;
+  left: -80px!important;
+}
+#o a{
+  left:230px;
+  background-image:url(images/o-plate.png);
+}
+#o .large{
+  transform: rotate(90deg);
+  top: -3800px;
+  left: -400px;
+}
+#l a{
+  left:400px;
+  background-image:url(images/l-plate.png);
+}
+#l .large{
+  transform: rotate(450deg);
+  top: -3015px;
+  left: -80px!important;
+}
+#i a{
+  left:540px;
+  background-image:url(images/i-plate.png);
+}
+#i .large{
+  transform: rotate(-270deg);
+  top: -3280px;
+  left: -80px!important;
+}
+#c a{
+  left:630px;
+  background-image:url(images/c-plate.png);
+}
+#c .large{
+  transform: rotate(-90deg);
+  top: -3760px;
+  left: -80px!important;
+}
+#e a{
+  left:800px;
+  background-image:url(images/e-plate.png);
+}
+#e .large{
+  transform: rotate(-90deg);
+  top: -3650px;
+  left: -80px!important;
+}
