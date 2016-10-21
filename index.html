@@ -26,8 +26,11 @@
   </div>
   <div id="overlay">
     <a href="#" id="close">X</a>
+    <h2 id="overlayTitle"></h2>
+    <div id="overlayText"></div>
   </div>
   <script src="./jquery-3.1.1.min.js"></script>
+  <script src="./text.js"></script>
   <script type="text/javascript">
     closing = false;
     var prefetchImages = function(sources, progress, callback){
@@ -57,6 +60,9 @@
             var anchor = $(this);
             $(this).addClass('large').parent().siblings().addClass('hidden');
             setTimeout(function(){
+              $('#overlay').addClass(anchor.parent().attr('id'));
+              $('#overlayTitle').text(messages[anchor.parent().attr('id')][0]);
+              $('#overlayText').text(messages[anchor.parent().attr('id')][1]);
               $('#overlay').addClass('shown');
               anchor.attr('data-background', anchor.css('background-image'));
               var img = new Image();
@@ -70,7 +76,7 @@
           $('#close').click(function(ev){
             closing = true;
             ev.preventDefault();
-            $('#overlay').removeClass('shown');
+            $('#overlay').attr('class','');
             var anchor = $('.letter a.large');
             anchor.css('background-image', anchor.attr('data-background'));
             anchor.removeClass('large').one('transitionend', function(){
