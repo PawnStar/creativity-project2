@@ -2,7 +2,7 @@ P - Prejudiced
 
 O - Overworked
 
-L - Loosely Supervised
+L - 
 
 I - Inhumane
 

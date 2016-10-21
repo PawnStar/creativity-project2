@@ -26,6 +26,7 @@
   z-index:0;
 }
 .letter{
+  margin:0;
   transition: opacity 1s ease-in-out;
   z-index:2;
   opacity:1;
@@ -73,7 +74,7 @@
 }
 #i a{
   left:540px;
-  background-image:url(images/i-plate.png);
+  background-image:url(images/i-plate-small.png);
 }
 #i .large{
   transform: rotate(-270deg);
