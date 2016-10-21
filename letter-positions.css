@@ -47,7 +47,7 @@
 }
 #p a{
   left:60px;
-  background-image:url(images/p-plate.png);
+  background-image:url(images/p-plate.jpg);
 }
 #p .large{
   transform: rotate(90deg);
@@ -56,7 +56,7 @@
 }
 #o a{
   left:230px;
-  background-image:url(images/o-plate.png);
+  background-image:url(images/o-plate.jpg);
 }
 #o .large{
   transform: rotate(90deg);
@@ -65,7 +65,7 @@
 }
 #l a{
   left:400px;
-  background-image:url(images/l-plate.png);
+  background-image:url(images/l-plate.jpg);
 }
 #l .large{
   transform: rotate(450deg);
@@ -74,7 +74,7 @@
 }
 #i a{
   left:540px;
-  background-image:url(images/i-plate.png);
+  background-image:url(images/i-plate.jpg);
 }
 #i .large{
   transform: rotate(-270deg);
@@ -83,7 +83,7 @@
 }
 #c a{
   left:630px;
-  background-image:url(images/c-plate.png);
+  background-image:url(images/c-plate.jpg);
 }
 #c .large{
   transform: rotate(-90deg);
@@ -92,7 +92,7 @@
 }
 #e a{
   left:800px;
-  background-image:url(images/e-plate.png);
+  background-image:url(images/e-plate.jpg);
 }
 #e .large{
   transform: rotate(-90deg);

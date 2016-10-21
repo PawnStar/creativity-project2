@@ -63,7 +63,7 @@
               img.onload = function(){
                 anchor.css('background-image', 'url(' + img.src + ')');
               }
-              img.src = 'images/' + anchor.parent().attr('id') + '-plate-large.png';
+              img.src = 'images/' + anchor.parent().attr('id') + '-plate-large.jpg';
             },2800)
             return false;
           })
@@ -86,18 +86,18 @@
         $('#progress div').css('width', (progress * 100) + '%');
       }
       prefetchImages([
-        'images/p-plate.png',
-        'images/p-plate-large.png',
-        'images/o-plate.png',
-        'images/o-plate-large.png',
-        'images/l-plate.png',
-        'images/l-plate-large.png',
-        'images/i-plate.png',
-        'images/i-plate-large.png',
-        'images/c-plate.png',
-        'images/c-plate-large.png',
-        'images/e-plate.png',
-        'images/e-plate-large.png'
+        'images/p-plate.jpg',
+        'images/p-plate-large.jpg',
+        'images/o-plate.jpg',
+        'images/o-plate-large.jpg',
+        'images/l-plate.jpg',
+        'images/l-plate-large.jpg',
+        'images/i-plate.jpg',
+        'images/i-plate-large.jpg',
+        'images/c-plate.jpg',
+        'images/c-plate-large.jpg',
+        'images/e-plate.jpg',
+        'images/e-plate-large.jpg'
       ], updateBar, setup);
     })
   </script>
