@@ -9,6 +9,7 @@
 <link href="teko.css" rel="stylesheet">
 <link href="letter-positions.css" rel="stylesheet">
 <link href="main-positioning.css" rel="stylesheet">
+<link href="overlay-positioning.css" rel="stylesheet">
 </head>
 <body>
   <div id="word" class="hidden">
@@ -26,8 +27,10 @@
   </div>
   <div id="overlay">
     <a href="#" id="close">X</a>
-    <h2 id="overlayTitle"></h2>
-    <div id="overlayText"></div>
+    <div id="overlayContent">
+      <h2 id="overlayTitle"></h2>
+      <div id="overlayText"></div>
+    </div>
   </div>
   <script src="./jquery-3.1.1.min.js"></script>
   <script src="./text.js"></script>
@@ -53,6 +56,7 @@
       var doOverlay = function(letter){
         $('#overlay').addClass(letter);
         $('#overlayTitle').text(messages[letter][0]);
+        $('#overlayText').empty();
         for(var i = 1; i< messages[letter].length; i++){
           $('#overlayText').append('<p>' + messages[letter][i] + '</p>')
         }
@@ -60,7 +64,7 @@
       }
       var setup = function(){
         $('#loading').fadeOut(300, function(){
-          $('#word').html('<div id="p" class="letter"><a href="#p">P</a></div><div id="o" class="letter"><a href="#o">O</a></div><div id="l" class="letter"><a href="#l">L</a></div><div id="i" class="letter"><a href="#i">I</a></div><div id="c" class="letter"><a href="#c">C</a></div><div id="e" class="letter"><a href="#e">E</a></div>');
+          $('#word').html('<div id="clickguard1"></div><div id="clickguard2"></div><div id="p" class="letter"><a href="#p">P</a></div><div id="o" class="letter"><a href="#o">O</a></div><div id="l" class="letter"><a href="#l">L</a></div><div id="i" class="letter"><a href="#i">I</a></div><div id="c" class="letter"><a href="#c">C</a></div><div id="e" class="letter"><a href="#e">E</a></div>');
           $('.letter a').click(function(ev){
             ev.preventDefault();
             if(closing) return false;
@@ -81,11 +85,12 @@
           $('#close').click(function(ev){
             closing = true;
             ev.preventDefault();
-            $('#overlay').attr('class','');
+            $('#overlay').removeClass('shown');
             var anchor = $('.letter a.large');
             anchor.css('background-image', anchor.attr('data-background'));
             anchor.removeClass('large').one('transitionend', function(){
               closing = false;
+              $('#overlay').attr('class','');
               $('.letter').removeClass('hidden');
             })
             return false;

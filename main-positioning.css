@@ -4,6 +4,24 @@ body{
   font-family: 'Teko', sans-serif;
 }
 
+#clickguard1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+  height: 150px;
+  z-index: 3;
+}
+
+#clickguard2{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+  height: 150px;
+  z-index: 3;
+}
+
 .center{
   color:white;
   display:block;
